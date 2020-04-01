@@ -14,6 +14,14 @@
      @scroll="contentScroll"
      :pullUpLoda="true"
      @pullingUp="loadMore">
+     <Swiper>
+      <SwiperItem v-for="(item,idex) in result"
+                  :key="idex">
+        <a :href="item.link">
+          <img :src="item.image" alt="" @load="imageIoad">
+        </a>
+      </SwiperItem>
+    </Swiper>
       <Recommend :recommend="recomments"></Recommend>
       <FeatureView></FeatureView>
       <TabControl
@@ -37,6 +45,7 @@ import FeatureView from './childComps/FeatureView.vue'
 
 //公共组件
 import NavBar from 'components/common/navbar/NavBar.vue'
+import {Swiper, SwiperItem} from 'components/common/swiper'
 import TabControl from 'components/content/tabControl/TabControl.vue'
 import GoodsList from 'components/content/goods/GoodsList.vue'
 import Scroll from 'components/common/scroll/Scroll.vue'
@@ -51,6 +60,7 @@ import {debounce} from '../../commonjs/utils.js'
     name:'Home',
     data () {
       return {
+        isLoad: false,
         result: [],
         recomments: [],
         goods: {
@@ -68,6 +78,8 @@ import {debounce} from '../../commonjs/utils.js'
     components: {
       NavBar,
       Recommend,
+      Swiper,
+      SwiperItem,
       FeatureView,
       TabControl,
       GoodsList,
@@ -127,6 +139,14 @@ import {debounce} from '../../commonjs/utils.js'
       loadMore() {
         this.getHomeGoods(this.currentType)
       },
+      imageIoad() {
+        if(!this.isLoad){
+          console.log('------');
+          this.isLoad = true
+          console.log(this.$refs.tabControl2.$el.offsetTop);
+          
+        }
+      },
       /**
       网络请求相关
        */
@@ -145,7 +165,7 @@ import {debounce} from '../../commonjs/utils.js'
         //动态获取展示数据页数
         const page = this.goods[type].page + 1;
          getHomeGoods(type,page).then(res => {
-          // console.log(res);
+          console.log(res);
           this.goods[type].list.push(...res.data.list);
           this.goods[type].page++;
           //scroll默认加载一次，所以需要用finishPullUp()来完成一次加载
@@ -181,10 +201,10 @@ import {debounce} from '../../commonjs/utils.js'
       this.tabOffsetTop = this.$refs.tabControl2.$el.offsetTop
     },
     destroyed() {
-      console.log("-------")
+      // console.log("-------")
     },
     activated() {
-      console.log("*******")
+      // console.log("*******")
       this.$refs.scroll.scrollTo(0,this.saveY,0)
       this.$refs.scroll.refresh()
     },
