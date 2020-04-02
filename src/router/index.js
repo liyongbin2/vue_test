@@ -33,6 +33,7 @@ const routes = [
   },
   {
     path: '/detail/:iid',
+    //用query方式  path: '/detail/
     component: Detail
   }
 ]

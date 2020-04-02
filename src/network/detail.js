@@ -35,3 +35,12 @@ export class Shop {
     this.goodCount = shopInfo.cGoods
   }
 }
+
+export class GoodsParam {
+  constructor(info, rule) {
+    // images可能没有值
+    this.image = info.image ? info.image[0] : ''
+    this.infos = info.set
+    this.sizes = rule.tables
+  }
+}

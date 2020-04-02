@@ -67,6 +67,7 @@ export default {
 <style scoped>
 .shop-info {
   padding-top: 5px;
+  border-bottom: 5px solid #f2f5f8;
 }
 .shop-top {
   padding-left: 5px;
