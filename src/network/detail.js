@@ -8,6 +8,12 @@ export function getDetail (iid) {
     }
   })
 }
+
+export function getRecommend () {
+  return request({
+    url: 'recommend'
+  })
+}
 // 数据抽离
 
 // 轮播图下方数据
@@ -17,6 +23,7 @@ export class Goods {
     this.desc = itemInfo.desc
     this.newPrice = itemInfo.price
     this.oldPrice = itemInfo.oldPrice
+    this.realPrice = itemInfo.highNowPrice
     this.discount = itemInfo.discountDesc
     this.columns = columns
     this.services = services

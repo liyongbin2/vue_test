@@ -11,13 +11,13 @@
     <table class="info-size">
       <tr v-for="(tr, index_tr) in  goodsparam.infos"
           :key="index_tr">
-        <td>{{tr.key}}</td>
+        <td class="td_key">{{tr.key}}</td>
         <td class="tr_value">{{tr.value}}</td>
       </tr>
     </table>
     <div class="info-img"
          v-if="Object.keys(goodsparam.image).length !== 0">
-      <img src="goodsparam.image"
+      <img :src="goodsparam.image"
            alt="">
     </div>
   </div>
@@ -54,9 +54,15 @@ table {
 }
 table td {
   border-bottom: 1px solid #eee;
+  font-size: 15px;
+  vertical-align: middle;
   color: #696969;
 }
+.td_key {
+  white-space: nowrap;
+}
 .tr_value {
+  padding-left: 18%;
   color: #ff69b4;
 }
 </style>

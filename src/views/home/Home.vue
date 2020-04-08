@@ -55,7 +55,8 @@ import BackTop from 'components/content/backTop/BackTop.vue'
 import { getHomeMultidata, getHomeGoods } from "../../network/home.js"
 
 //方法
-import { debounce } from '../../commonjs/utils.js'
+// import { debounce } from 'commonjs/utils.js'
+import { itemListenerMixin } from 'commonjs/itemListenerMixin.js'
 
 export default {
   name: 'Home',
@@ -74,8 +75,10 @@ export default {
       tabOffsetTop: 0,
       isTabFixed: false,
       saveY: 0
+      //全局监听取消保存函数 itemImgListener: null
     };
   },
+  mixins: [itemListenerMixin],
   components: {
     NavBar,
     Recommend,
@@ -130,7 +133,7 @@ export default {
       //   this.isShowBackTop = true
       // } 
       this.isShowBackTop = position.y < -1000
-      //2.tabControl吸顶
+      //2.tabControl吸顶,显示TabControl
       this.isTabFixed = (-position.y) > this.tabOffsetTop
 
     },
@@ -140,7 +143,7 @@ export default {
     },
     imageIoad () {
       if (!this.isLoad) {
-        console.log('------');
+        // console.log('------');
         this.isLoad = true
         console.log(this.$refs.tabControl2.$el.offsetTop);
 
@@ -181,24 +184,6 @@ export default {
     this.getHomeGoods('sell')
 
   },
-  mounted () {
-    //3.监听图片加载完成
-    /**
-     * 注意$bus这个东西是没有的，所以需要在原型中添加，
-     * 也就是在main.js创建，也就是Vue.prototype.$bus = new Vue()，
-     * 因为vue实例可以作为事件总线，所以相当于$bus是一个vue实例，所
-     * 以可以通过vue实例发射和监听实例。
-    */
-    const refresh = debounce(this.$refs.scroll.refresh)
-    debounce(this.$refs.scroll.refresh, 50)
-    this.$bus.$on('ItemImgLoad', () => {
-      refresh()
-    })
-    //获取TabControl组件里面元素的offsetTop属性
-    //所有的组件都有一个属性$el：用于获取组件中的元素
-    // console.log(this.$refs.tabControl.$el.offsetTop)
-    this.tabOffsetTop = this.$refs.tabControl2.$el.offsetTop
-  },
   destroyed () {
     // console.log("-------")
   },
@@ -211,7 +196,48 @@ export default {
   deactivated () {
     this.saveY = this.$refs.scroll.getScrollY()
     console.log(this.$refs.scroll.getScrollY())
+    /***
+    取消全局监听
+    this.$bus.$off('ItemImgLoad', this.itemImgListener)
+     */
   },
+  mounted () {
+    //3.监听图片加载完成
+    /**
+     * 注意$bus这个东西是没有的，所以需要在原型中添加，
+     * 也就是在main.js创建，也就是Vue.prototype.$bus = new Vue()，
+     * 因为vue实例可以作为事件总线，所以相当于$bus是一个vue实例，所
+     * 以可以通过vue实例发射和监听实例。
+    */
+    /**
+    全局监听取消方法1
+     const refresh = debounce(this.$refs.scroll.refresh)
+    debounce(this.$refs.scroll.refresh, 50)
+    this.$bus.$on('homeItemImgLoad', () => {
+      refresh()
+    })
+     */
+    /**
+    全局监听取消方法2
+        const refresh = debounce(this.$refs.scroll.refresh)
+    debounce(this.$refs.scroll.refresh, 50)
+    this.itemImgListener = () => {
+      refresh()
+    }
+    this.$bus.$on('ItemImgLoad', this.itemImgListener)
+     */
+    /**
+    全局监听取消方法3
+    mixins: [itemListenerMixin]
+     */
+
+
+    //获取TabControl组件里面元素的offsetTop属性
+    //所有的组件都有一个属性$el：用于获取组件中的元素
+    // console.log(this.$refs.tabControl.$el.offsetTop)
+    this.tabOffsetTop = this.$refs.tabControl2.$el.offsetTop
+  }
+
 }
 
 </script>
