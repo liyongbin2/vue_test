@@ -2,9 +2,15 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import 'normalize.css/normalize.css'
+
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import './plugins/element.js'
+
+
+import './plugins/vant.js'
+
+
 import store from './store'
 import FastClick from 'fastclick'
 import LazyLoad from 'vue-lazyload'
@@ -19,6 +25,8 @@ Vue.use(toast)
 // 解决移动端300ms延迟
 FastClick.attach(document.body)
 // 使用图片懒加载，原来img :src=路径就要改成v-lazy: 路径
+
+
 Vue.use(LazyLoad)
 new Vue({
   router,

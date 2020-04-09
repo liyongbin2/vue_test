@@ -15,5 +15,10 @@ export default {
   },
   addToCart (state, payload) {
     state.cartList.push(payload)
+  },
+  subCount (state, payload) {
+    if (payload.count > 0) {
+      payload.count--
+    }
   }
 }

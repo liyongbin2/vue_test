@@ -22,7 +22,7 @@
            @click="addToCart">
         <img src="~assets/img/detailBottomNavBar/购物车添加.svg"
              alt="">
-        <div class="BNVtitle">我的购物车</div>
+        <div class="BNVtitle">加入购物车</div>
       </div>
       <div class="buy">
         <div class="BNVtitle">购买</div>

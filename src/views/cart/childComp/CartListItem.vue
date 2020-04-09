@@ -16,7 +16,13 @@
       <div class="desc">{{product.desc}}</div>
       <div class="price">
         <div class="realPrice">￥{{product.price}}</div>
-        <div class="count">x{{product.count}}</div>
+        <div class="count">
+          <i class="el-icon-remove-outline"
+             @click="subClick"></i>
+          x{{product.count}}
+          <i class="el-icon-circle-plus-outline"
+             @click="addClick"></i>
+        </div>
       </div>
     </div>
   </div>
@@ -46,6 +52,12 @@ export default {
   methods: {
     checkClick () {
       this.product.isChechk = !this.product.isChechk
+    },
+    addClick () {
+      this.$store.dispatch('addCart', this.product)
+    },
+    subClick () {
+      this.$store.dispatch('subCart', this.product)
     }
   },
 }

@@ -1,245 +1,74 @@
 <template>
-  <div class="wrapper">
-    <div class="content">
+  <div class="category">
+    <NavBar class="category-navbar">
+      <div slot="center">分类</div>
+    </NavBar>
+    <div class="category-list">
       <ul>
-        <li>11</li>
-        <li>11</li>
-        <li>12</li>
-        <li>13</li>
-        <li>14</li>
-        <li>15</li>
-        <li>16</li>
-        <li>17</li>
-        <li>18</li>
-        <li>19</li>
-        <li>110</li>
-        <li>111</li>
-        <li>112</li>
-        <li>113</li>
-        <li>114</li>
-        <li>115</li>
-        <li>116</li>
-        <li>117</li>
-        <li>118</li>
-        <li>119</li>
-        <li>120</li>
-        <li>121</li>
-        <li>122</li>
-        <li>123</li>
-        <li>124</li>
-        <li>125</li>
-        <li>126</li>
-        <li>127</li>
-        <li>128</li>
-        <li>129</li>
-        <li>130</li>
-        <li>131</li>
-        <li>132</li>
-        <li>133</li>
-        <li>134</li>
-        <li>135</li>
-        <li>136</li>
-        <li>137</li>
-        <li>138</li>
-        <li>139</li>
-        <li>140</li>
-        <li>141</li>
-        <li>142</li>
-        <li>143</li>
-        <li>144</li>
-        <li>145</li>
-        <li>146</li>
-        <li>147</li>
-        <li>148</li>
-        <li>149</li>
-        <li>150</li>
-        <li>151</li>
-        <li>152</li>
-        <li>153</li>
-        <li>154</li>
-        <li>155</li>
-        <li>156</li>
-        <li>157</li>
-        <li>158</li>
-        <li>159</li>
-        <li>160</li>
-        <li>161</li>
-        <li>162</li>
-        <li>163</li>
-        <li>164</li>
-        <li>165</li>
-        <li>166</li>
-        <li>167</li>
-        <li>168</li>
-        <li>169</li>
-        <li>170</li>
-        <li>171</li>
-        <li>172</li>
-        <li>173</li>
-        <li>174</li>
-        <li>175</li>
-        <li>176</li>
-        <li>177</li>
-        <li>178</li>
-        <li>179</li>
-        <li>180</li>
-        <li>181</li>
-        <li>182</li>
-        <li>183</li>
-        <li>184</li>
-        <li>185</li>
-        <li>186</li>
-        <li>187</li>
-        <li>188</li>
-        <li>189</li>
-        <li>190</li>
-        <li>191</li>
-        <li>192</li>
-        <li>193</li>
-        <li>194</li>
-        <li>195</li>
-        <li>196</li>
-        <li>197</li>
-        <li>198</li>
-        <li>199</li>
-        <li>1100</li>
-        <li>12</li>
-        <li>13</li>
-        <li>14</li>
-        <li>15</li>
-        <li>16</li>
-        <li>17</li>
-        <li>18</li>
-        <li>19</li>
-        <li>110</li>
-        <li>111</li>
-        <li>112</li>
-        <li>113</li>
-        <li>114</li>
-        <li>115</li>
-        <li>116</li>
-        <li>117</li>
-        <li>118</li>
-        <li>119</li>
-        <li>120</li>
-        <li>121</li>
-        <li>122</li>
-        <li>123</li>
-        <li>124</li>
-        <li>125</li>
-        <li>126</li>
-        <li>127</li>
-        <li>128</li>
-        <li>129</li>
-        <li>130</li>
-        <li>131</li>
-        <li>132</li>
-        <li>133</li>
-        <li>134</li>
-        <li>135</li>
-        <li>136</li>
-        <li>137</li>
-        <li>138</li>
-        <li>139</li>
-        <li>140</li>
-        <li>141</li>
-        <li>142</li>
-        <li>143</li>
-        <li>144</li>
-        <li>145</li>
-        <li>146</li>
-        <li>147</li>
-        <li>148</li>
-        <li>149</li>
-        <li>150</li>
-        <li>151</li>
-        <li>152</li>
-        <li>153</li>
-        <li>154</li>
-        <li>155</li>
-        <li>156</li>
-        <li>157</li>
-        <li>158</li>
-        <li>159</li>
-        <li>160</li>
-        <li>161</li>
-        <li>162</li>
-        <li>163</li>
-        <li>164</li>
-        <li>165</li>
-        <li>166</li>
-        <li>167</li>
-        <li>168</li>
-        <li>169</li>
-        <li>170</li>
-        <li>171</li>
-        <li>172</li>
-        <li>173</li>
-        <li>174</li>
-        <li>175</li>
-        <li>176</li>
-        <li>177</li>
-        <li>178</li>
-        <li>179</li>
-        <li>180</li>
-        <li>181</li>
-        <li>182</li>
-        <li>183</li>
-        <li>184</li>
-        <li>185</li>
-        <li>186</li>
-        <li>187</li>
-        <li>188</li>
-        <li>189</li>
-        <li>190</li>
-        <li>191</li>
-        <li>192</li>
-        <li>193</li>
-        <li>194</li>
-        <li>195</li>
-        <li>196</li>
-        <li>197</li>
-        <li>198</li>
-        <li>199</li>
-        <li>1100</li>
+        <li v-for="(item,index) in categoryList"
+            :key="index"
+            @click="liClick(index)">
+          <div>{{item}}</div>
+        </li>
       </ul>
     </div>
+    <div class="category-content"></div>
   </div>
-  
-  </template>
+
+</template>
   
   <script>
-  import BScroll from 'better-scroll'
-    export default {
-      name:'Category',
-      props:[''],
-      data () {
-        return {
-          scroll: null
-        };
-      },
-      mounted() {
-        this.scroll = new BScroll('.wrapper',{
-          probeType: 3,
-          pullUpLoda: true
-        })
-
-        this.scroll.on('scroll',(position) => {
-          console.log(position);
-        })
-        
-        this.scroll.on('pullingUp', () => {
-          //上拉加载更多数据
-          //等数据请求完成，且将新的数据展示出来后
-
-      })
+import NavBar from 'components/common/navbar/NavBar.vue'
+export default {
+  name: 'Category',
+  props: [''],
+  data () {
+    return {
+      categoryList: ['热门', '热门', '热门', '热门', '热门', '热门', '热门', '热门']
     }
+  },
+  methods: {
+    liClick (index) {
+      console.log(index)
+    }
+  },
+  components: {
+    NavBar
   }
-  
+}
+
+
   </script>
   <style scoped>
-  .wrapper{
-    height: 150px;
-    background: red;
-  }
-  </style>
+.category {
+  display: flex;
+  height: 100vh;
+}
+.category-navbar {
+  background-color: #ff1493;
+  color: #ffffff;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 9;
+}
+.category-list {
+  flex: 1;
+  margin-top: 44px;
+  text-align: center;
+}
+.category-list li {
+  width: 100%;
+  border: 1px solid #eee;
+  padding-top: 15px;
+  position: relative;
+}
+.category-list li div {
+  position: relative;
+  bottom: 8.5px;
+}
+.category-content {
+  flex: 2.5;
+}
+</style>

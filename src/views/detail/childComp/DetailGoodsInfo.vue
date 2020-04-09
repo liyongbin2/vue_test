@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     imgLoad () {
-      // 让实践只发出去一次，因为图片很多，将加载出来的图片个数进行累加再判断图片个数是不是和数据里面存放图片的数组长度相等，如果相等就发出事件imageLoad
+      // 让事件只发出去一次，因为图片很多，将加载出来的图片个数进行累加再判断图片个数是不是和数据里面存放图片的数组长度相等，如果相等就发出事件imageLoad
       // 也就是只让其回调一次
       if (++this.counter === this.imagesLength) {
         this.$emit('imageLoad')
