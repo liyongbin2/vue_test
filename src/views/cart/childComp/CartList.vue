@@ -23,8 +23,15 @@ export default {
   },
   computed: {
     cartList () {
+      //  如果使用这个，循环就要使用括号来使用方法v-for="(item,index) in cartLis
       return this.$store.state.cartList
     }
+  },
+  methods: {
+    // 如果使用这个，循环就要使用括号来使用方法v-for="(item,index) in cartLis()
+    // cartList () {
+    //   return this.$store.state.cartList
+    // }
   },
   components: {
     Scroll,

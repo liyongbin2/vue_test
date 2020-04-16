@@ -42,7 +42,7 @@ export default {
   methods: {
     titleclick (index) {
       //两个都可以
-      // console.log(this.index)
+      // console.log(index)
       this.currentIndex = index
       this.$emit('titleClick', index)
     },

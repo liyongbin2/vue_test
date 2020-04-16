@@ -137,7 +137,7 @@ export default {
       console.log(this.themeTopYs)
     },
     titleClick (index) {
-      // console.log(index)
+      console.log(index)
       this.$refs.scroll.scrollTo(0, -this.themeTopYs[index], 500)
 
     },
@@ -227,7 +227,7 @@ export default {
 }
 .content {
   overflow: hidden;
-  height: 100%;
+  height: calc(100% - 49px);
   top: 44px;
   bottom: 49px;
 }

@@ -51,6 +51,7 @@ export default {
   },
   methods: {
     checkClick () {
+      // 这里会改变vuex中state里的isChechk中的值
       this.product.isChechk = !this.product.isChechk
     },
     addClick () {

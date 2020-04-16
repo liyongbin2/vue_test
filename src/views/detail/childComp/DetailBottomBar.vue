@@ -53,7 +53,6 @@ export default {
 <style scoped>
 .bottom-bar {
   position: relative;
-  bottom: 49px;
   height: 49px;
   background-color: white;
   display: flex;
