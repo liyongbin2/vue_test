@@ -7,14 +7,20 @@
       v-show="isTabFixed"></TabControl>
     <Scroll class="content" ref="scroll" :probeType="3" @scroll="contentScroll" :pullUpLoda="true"
       @pullingUp="loadMore">
-
-      <el-carousel height="144px">
+      <Swiper>
+        <SwiperItem v-for="(item,idex) in result" :key="idex">
+          <a :href="item.link">
+            <img :src="item.image" alt="" @load="imageIoad">
+          </a>
+        </SwiperItem>
+      </Swiper>
+      <!-- <el-carousel height="144px">
         <el-carousel-item v-for="(item,idex) in result" :key="idex">
           <a :href="item.link">
             <img :src="item.image" alt="" @load="imageIoad">
           </a>
         </el-carousel-item>
-      </el-carousel>
+      </el-carousel> -->
 
       <!-- <van-swipe class="my-swipe"
                  :autoplay="3000"
@@ -47,7 +53,7 @@
 
   //公共组件
   import NavBar from 'components/common/navbar/NavBar.vue'
-  // import { Swiper, SwiperItem } from 'components/common/swiper'
+  import { Swiper, SwiperItem } from 'components/common/swiper'
   import TabControl from 'components/content/tabControl/TabControl.vue'
   import GoodsList from 'components/content/goods/GoodsList.vue'
   import Scroll from 'components/common/scroll/Scroll.vue'
@@ -87,7 +93,9 @@
       TabControl,
       GoodsList,
       Scroll,
-      BackTop
+      BackTop,
+      Swiper,
+      SwiperItem
     },
     computed: {
       showGoods() {
